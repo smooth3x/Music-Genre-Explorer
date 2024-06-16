@@ -2,12 +2,12 @@
 <img src="https://i.ibb.co/9ynJnTh/logo.png" alt="Music Genre Explorer" width="800">
 </h1>
 
-<h4 align="center">A simple platform for searching and discovering music genres using <a href="http://everynoise.com" target="_blank">Everynoise.com</a>.</h4>
+<h4 align="center">A simple platform for searching and discovering music genres using <a href="http://everynoise.com">Everynoise.com</a>.</h4>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/-Python-yellow?style=for-the-badge&logo=Python&logoColor=white">
-  <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi">
-  <img src="https://img.shields.io/badge/-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/-Python-yellow?style=for-the-badge&logo=Python&logoColor=white"></a>
+  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi"></a>
+  <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"></a>
 </p>
 
 <p align="center">
