@@ -19,7 +19,7 @@
 
 ## About
 
-• <span style="color:#FFAF69; font-weight:bold">Music Genre Explorer</span> is a web application designed to facilitate exploration of over <span style="color:#FFAF69; font-weight:bold">6000 genres</span> of music, enabling users to discover new artists and musical styles. <br />
+• <strong style="color:#FFAF69;">Music Genre Explorer</strong> is a web application designed to facilitate exploration of over <strong style="color:#FFAF69;">6000 genres</strong> of music, enabling users to discover new artists and musical styles. <br />
 • It uses web scraping to fetch genre data from [EveryNoise](https://everynoise.com/) and provides a simple API to access this data.
 
 ## How To Use
