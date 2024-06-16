@@ -45,8 +45,8 @@ $ cd Music-Genre-Explorer
 
 # Build the docker-compose file & Run
 $ docker-compose up --build
+```
 
 ## Credits
 
 This application couldn't be completed without the data from [EveryNoise](https://everynoise.com)
-```
