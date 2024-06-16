@@ -1,3 +1,5 @@
 requests
-streamlit
 pandas
+streamlit
+streamlit-searchbox
+Pillow

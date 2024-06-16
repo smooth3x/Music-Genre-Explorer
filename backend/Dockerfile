@@ -1,12 +1,20 @@
-FROM python:3.8
+# Backend Dockerfile
+FROM python:3.9-slim
 
+# Set working directory
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+# Copy the requirements file into the container
+COPY requirements.txt .
 
-RUN python -m pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the application files into the container
 COPY . .
 
-CMD ["uvicorn", "main:app", "--reload"]
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Command to run the app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

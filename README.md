@@ -43,13 +43,10 @@ $ git clone https://github.com/smooth3x/Music-Genre-Explorer
 # Go into the repository
 $ cd Music-Genre-Explorer
 
-# Build the docker-compose file
-$ docker-compose build
-
-# Run the app
-$ docker-compose up
-```
+# Build the docker-compose file & Run
+$ docker-compose up --build
 
 ## Credits
 
 This application couldn't be completed without the data from [EveryNoise](https://everynoise.com)
+```
