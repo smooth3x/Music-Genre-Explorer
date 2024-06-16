@@ -2,7 +2,7 @@
 <img src="https://i.ibb.co/9ynJnTh/logo.png" alt="Music Genre Explorer" width="800">
 </h1>
 
-<h4 align="center">A simple platform for searching and discovering music genres using <a href="http://everynoise.com">Everynoise.com</a>.</h4>
+<h4 align="center">A simple platform for searching and discovering music genres using data from <a href="http://everynoise.com">Everynoise.com</a>.</h4>
 
 <p align="center">
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/-Python-yellow?style=for-the-badge&logo=Python&logoColor=white"></a>
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#About">About</a> •
+  • <a href="#About">About</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#installation">Installation</a> •
   <a href="#credits">Credits</a> •
@@ -19,8 +19,8 @@
 
 ## About
 
-Music Genre Explorer is a web application designed to facilitate exploration of over 6000 genres of music, enabling users to discover new artists and musical styles. <br />
-It uses web scraping to fetch genre data from [EveryNoise](https://everynoise.com/) and provides a simple API to access this data.
+• <span style="color:#FFAF69; font-weight:bold">Music Genre Explorer</span> is a web application designed to facilitate exploration of over <span style="color:#FFAF69; font-weight:bold">6000 genres</span> of music, enabling users to discover new artists and musical styles. <br />
+• It uses web scraping to fetch genre data from [EveryNoise](https://everynoise.com/) and provides a simple API to access this data.
 
 ## How To Use
 
@@ -49,4 +49,4 @@ $ docker-compose up --build
 
 ## Credits
 
-This application couldn't be completed without the data from [EveryNoise](https://everynoise.com)
+This application couldn't be completed without the data from [Everynoise.com](https://everynoise.com)
