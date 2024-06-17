@@ -1,0 +1,28 @@
+table {
+  font-family: "Arial";
+  border-collapse: collapse;
+  margin: 15px auto;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #ffaf69;
+  background: #0b0d11;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+    0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+table tbody tr:hover {
+  background: #161b24;
+}
+table th,
+table td {
+  border: 1px solid #eee;
+  padding: 12px 35px;
+  border-collapse: collapse;
+}
+table thead {
+  background: #ffaf69;
+  color: #0b0d11;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+table th.last {
+  border-right: none;
+}
