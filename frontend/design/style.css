@@ -3,7 +3,7 @@ table {
   border-collapse: collapse;
   margin: 15px auto;
   border: 1px solid #eee;
-  border-bottom: 2px solid #ffaf69;
+  border-bottom: 2px solid #f2b22f /*#ffaf69*/;
   background: #0b0d11;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
     0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
@@ -18,7 +18,7 @@ table td {
   border-collapse: collapse;
 }
 table thead {
-  background: #ffaf69;
+  background: #f2b22f;
   color: #0b0d11;
   text-transform: uppercase;
   font-size: 12px;
