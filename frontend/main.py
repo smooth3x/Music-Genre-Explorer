@@ -9,18 +9,18 @@ import base64
 
 # Function to fetch genres from the FastAPI backend
 def fetch_genres():
-    response = requests.get("http://backend:8000/v1/genres")
+    response = requests.get("http://localhost:8000/v1/genres")
     return response.json()
 
 # Function to fetch bands for a specific genre from the FastAPI backend
 def fetch_genre_bands(genre_name):
-    response = requests.get(f"http://backend:8000/v1/genre/{genre_name.replace(' ', '').lower()}")
+    response = requests.get(f"http://localhost:8000/v1/genre/{genre_name.replace(' ', '').lower()}")
     bands_data = response.json()
     return bands_data
 
 # Function to fetch genres by artist from the FastAPI backend
 def fetch_genres_by_artist(artist):
-    response = requests.get(f"http://backend:8000/v1/genres_by_artist/{artist}")
+    response = requests.get(f"http://localhost:8000/v1/genres_by_artist/{artist}")
     genres = response.json()
     return genres
 
@@ -50,17 +50,8 @@ def render_artists_page(selected_genre):
     
     bands_df = pd.DataFrame(bands_data)
 
-    st.set_page_config(layout="wide", page_title="Music Genre Explorer", page_icon="🎵")
-
-    with open("design/style.css") as style:
-        st.markdown(f"<style>{style.read()}</style>", unsafe_allow_html=True)
-
-    with st.columns(3)[1]:
-        render_logo()
-
-        style = "<style>h3 {text-align: center;}</style>"
-        st.markdown(style, unsafe_allow_html=True)
-        st.subheader(f"Popular Artists in \"{selected_genre}\"")
+    style = f'<h4 style="text-align: center;">Popular Artists in \"{selected_genre}\"</h4>'
+    st.markdown(style, unsafe_allow_html=True)
 
     # Pagination for bands data
     items_per_page = 12
@@ -87,7 +78,7 @@ def render_artists_page(selected_genre):
     band_page_data = bands_df.iloc[start_idx:end_idx]
 
     # Create two columns
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([0.65, 0.35])
 
     # Display the table in the first column
     with col1:
@@ -95,18 +86,11 @@ def render_artists_page(selected_genre):
 
     # Display the Spotify playlist in the second column
     with col2:
-        st.write(f'<iframe style="border-radius:12px; margin: 15px auto;" src="https://open.spotify.com/embed/playlist/{spotify_playlist}?utm_source=generator" width="100%" height="720" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>', unsafe_allow_html=True)
+        st.write(f'<iframe style="border-radius:12px; margin: 15px auto;" src="https://open.spotify.com/embed/playlist/{spotify_playlist}?utm_source=generator" width="100%" height="760" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>', unsafe_allow_html=True)
 
 def render_genres_page(): 
     genres_data = fetch_genres()
     df = pd.DataFrame(genres_data)
-
-    st.set_page_config(layout="centered", page_title="Music Genre Explorer", page_icon="🎵")
-
-    with open("design/style.css") as style:
-        st.markdown(f"<style>{style.read()}</style>", unsafe_allow_html=True)
-
-    render_logo()
 
     def update_query_params():
         selected_genres = st.session_state.selected_genres
@@ -116,6 +100,9 @@ def render_genres_page():
             st.query_params["genre"] = selected_genres.lower()
         else:
             st.query_params()
+    
+    def update_page():
+        st.session_state.current_page = st.session_state.page_select
 
     col1, col2, col3 = st.columns(3)
 
@@ -158,9 +145,6 @@ def render_genres_page():
     if 'current_page' not in st.session_state:
         st.session_state.current_page = 1
 
-    def update_page():
-        st.session_state.current_page = st.session_state.page_select
-
     if total_pages > 0:
         start_idx = (st.session_state.current_page - 1) * items_per_page
 
@@ -200,22 +184,36 @@ def render_logo():
 
     st.markdown(
         f"""
-        <a href="http://localhost:8501/" target="_self">
-            <img src="data:image/png;base64,{img_str}" width="100%" alt="Logo">
+        <center>
+        <a href="http://localhost:8501/" target="_self" style="text-align:center">
+            <img src="data:image/png;base64,{img_str}" width="80%" alt="Logo">
         </a>
+        </center>
+        <br/>
         """,
         unsafe_allow_html=True
     )
 
 
 def main():
+    st.set_page_config(layout="wide", page_title="Music Genre Explorer", page_icon="🎵")
+
+    with open("design/style.css") as style:
+        st.markdown(f"<style>{style.read()}</style>", unsafe_allow_html=True)
+
     # Extract query parameters
     selected_genre = st.query_params.get("genre", None)
+
+    col_left, col_center, col_right = st.columns([0.2, 0.6, 0.2])
+
+    with col_center:
+        render_logo()
 
     if selected_genre:
         render_artists_page(selected_genre)
     else:
-        render_genres_page()
+        with col_center:
+            render_genres_page()
 
     with open("design/script.js") as script:
         st.markdown(f"<script>{script.read()}</script>", unsafe_allow_html=True)
