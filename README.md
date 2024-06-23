@@ -26,9 +26,9 @@
 
 - Searching Genres:
   - You can search and select a genre from the genre list.
-    - [<img src="[https://pouch.jumpshare.com/preview/Y2D5bAdaCqP-_V1u2RnxZyFdu-zWONd2wN7s7KARsUTc-zDCOSjGYF-CWuaKEIxkJtDrGaXPp-rsI8Oxq8guc9P28AAMXVc4ArqCyqfLVPk](https://i.imgur.com/DHzSApN.gif)" style="text-align: left;">](https://i.imgur.com/DHzSApN.gif)
+    - <img src="https://i.imgur.com/DHzSApN.gif" style="text-align: left;">
   - Or, you can search genres by artist name.
-    - [<img src="https://pouch.jumpshare.com/preview/ztUtdj4iCCfpG0Guc5YKDL00gSfH5KHmQUivqq1TukyFKHkHAPdBq5LzBiKakRzoJtDrGaXPp-rsI8Oxq8guc2i9arcvSS0OEjrUYGYLflc" style="text-align: left;">](https://i.imgur.com/DHzSApN.gif)
+    - <img src="https://i.imgur.com/3Z490u3.gif" style="text-align: left;">
 - Exploring Genres:
   - Each genre will present its most popular artists, previews of their songs, and a spotify list so you can save them for later.
 
