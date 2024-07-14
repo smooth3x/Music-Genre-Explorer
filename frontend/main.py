@@ -9,18 +9,19 @@ import base64
 
 # Function to fetch genres from the FastAPI backend
 def fetch_genres():
-    response = requests.get("http://localhost:8000/v1/genres")
+    response = requests.get("http://routing:8000/v1/genres")
     return response.json()
 
 # Function to fetch bands for a specific genre from the FastAPI backend
 def fetch_genre_bands(genre_name):
-    response = requests.get(f"http://localhost:8000/v1/genre/{genre_name.replace(' ', '').lower()}")
+    response = requests.get(f"http://routing:8000/v1/genre/{genre_name.replace(' ', '').lower()}")
     bands_data = response.json()
     return bands_data
 
 # Function to fetch genres by artist from the FastAPI backend
 def fetch_genres_by_artist(artist):
-    response = requests.get(f"http://localhost:8000/v1/genres_by_artist/{artist}")
+    # response = requests.get(f"http://localhost:8000/v1/genres_by_artist/{artist}")
+    response = requests.get(f"http://routing:8000/v1/artist-genres/{artist}")
     genres = response.json()
     return genres
 
@@ -34,7 +35,9 @@ def render_table(dataframe):
             audio_tag = 'No audio preview available'
         dataframe.at[i, 'Audio Preview'] = audio_tag
     
-    dataframe.reset_index(drop=True, inplace=True)
+    #if(resetIndex is False):
+    #    dataframe.reset_index(drop=True, inplace=True)
+
     dataframe.index = dataframe.index + 1
 
     table_html = dataframe.to_html(escape=False, index=True, classes="dataframe", justify="center")

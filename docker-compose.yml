@@ -1,11 +1,27 @@
 version: "3.8"
 
 services:
-  backend:
-    build: ./backend
-    container_name: backend
+  routing:
+    build: ./backend/routing
+    container_name: routing
     ports:
       - "8000:8000"
+    networks:
+      - app-network
+
+  everynoise-crawler:
+    build: ./backend/everynoise-crawler
+    container_name: everynoise-crawler
+    ports:
+      - "8001:8000"
+    networks:
+      - app-network
+
+  spotify-api:
+    build: ./backend/spotify-api
+    container_name: spotify-api
+    ports:
+      - "8002:8000"
     networks:
       - app-network
 
@@ -15,7 +31,9 @@ services:
     ports:
       - "8501:8501"
     depends_on:
-      - backend
+      - routing
+      - everynoise-crawler
+      - spotify-api
     networks:
       - app-network
 
