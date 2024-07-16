@@ -47,7 +47,13 @@ def render_table(dataframe):
 
 def render_artists_page(selected_genre): 
 
-    genre_data = fetch_genre_bands(selected_genre)
+    def get_genres_bands_data(selected_genre):
+        if 'genre_bands_data' not in st.session_state:
+            st.session_state.genre_bands_data = fetch_genre_bands(selected_genre)
+
+        return st.session_state.genre_bands_data
+    
+    genre_data = get_genres_bands_data(selected_genre)
     bands_data = genre_data['bands']
     spotify_playlist = genre_data['spotify_playlist']
     
@@ -92,9 +98,6 @@ def render_artists_page(selected_genre):
         st.write(f'<iframe style="border-radius:12px; margin: 15px auto;" src="https://open.spotify.com/embed/playlist/{spotify_playlist}?utm_source=generator" width="100%" height="760" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>', unsafe_allow_html=True)
 
 def render_genres_page(): 
-    genres_data = fetch_genres()
-    df = pd.DataFrame(genres_data)
-
     def update_query_params():
         selected_genres = st.session_state.selected_genres
 
@@ -103,9 +106,16 @@ def render_genres_page():
             st.query_params["genre"] = selected_genres.lower()
         else:
             st.query_params()
-    
     def update_page():
-        st.session_state.current_page = st.session_state.page_select
+        st.session_state.current_page = st.session_state.page_select 
+    def get_genres_data():
+        if 'genre_data' not in st.session_state:
+            st.session_state.genre_data = fetch_genres()
+        
+        return st.session_state.genre_data
+
+    genres_data = get_genres_data()
+    df = pd.DataFrame(genres_data)
 
     col1, col2, col3 = st.columns(3)
 
