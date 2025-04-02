@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://i.ibb.co/9ynJnTh/logo.png" alt="Music Genre Explorer" width="800">
+<img src="https://i.imgur.com/vyCRKbC.png" alt="Music Genre Explorer" width="800">
 </h1>
 
 <h4 align="center">A simple platform for searching and discovering music genres using data from <a href="http://everynoise.com">Everynoise.com</a>.</h4>
